@@ -89,6 +89,19 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(
+                  height: 155.0,
+                  child: Image.network(
+                    'https://acortar.link/YS8cg2',
+                    fit: BoxFit.contain,
+                  ),
+                  /*
+                  child: Image.assets(
+                    'assets/icono.png',
+                    fit: BoxFit.contain,
+                  ),
+                  */
+                ),
                 SizedBox(height: 20),
                 email,
                 SizedBox(height: 20),
