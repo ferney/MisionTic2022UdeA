@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-part 'model.g.dart';
+part 'modelo.g.dart';
 
 @HiveType(typeId: 0)
 class Item extends HiveObject{
