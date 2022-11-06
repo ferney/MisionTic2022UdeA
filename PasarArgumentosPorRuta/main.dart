@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:navigator/routes.dart';
+import 'rutas.dart';
 
 void main() => runApp(MyApp());
 
