@@ -98,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: <Widget>[
 
-            Image.asset("assets/login.jpg"),
+            
 
             Container(
               padding: EdgeInsets.only(left: 50, top: 25, right: 50),
