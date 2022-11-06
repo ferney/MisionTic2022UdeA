@@ -2,7 +2,7 @@
 
     $host = "localhost";//HOSTING
     $user = "id7264914_root"; //USUARIO
-    $pw = "90100100"; //PASWORD GENERADA EN 000WEBHOTS
+    $pw = "90100100"; //PASSWORD GENERADA EN 000WEBHOTS
     $db = "id7264914_FLUTTER"; //BASE DE DATOS
    
     // Variables de la conexion a la DB
