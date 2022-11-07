@@ -9,6 +9,7 @@
 		while ($row = mysqli_fetch_object($ejecutar)){
 		 $data[]=$row;
 		}
+		//aquí convertimos los datos en formato json
 		echo json_encode($data);
 	}
 	
