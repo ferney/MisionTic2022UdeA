@@ -13,15 +13,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Using MultiProvider is convenient when providing multiple objects.
+    
     return MultiProvider(
       providers: [
-        // In this sample app, FavoriteListModel never changes, so a simple Provider
-        // is sufficient.
+        
         Provider(create: (context) => FavoriteListModel()),
-        // FavoritePageModel is implemented as a ChangeNotifier, which calls for the use
-        // of ChangeNotifierProvider. Moreover, FavoritePageModel depends
-        // on FavoriteListModel, so a ProxyProvider is needed.
+        
         ChangeNotifierProxyProvider<FavoriteListModel, FavoritePageModel>(
           create: (context) => FavoritePageModel(),
           update: (context, favoritelist, favoritepage) {
