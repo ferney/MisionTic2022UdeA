@@ -20,4 +20,6 @@ CREATE TABLE libro(
 	nombre varchar(50),
 	autor varchar(50),
 	precio int
+	//descripcion varchar(100) => puede ir una descripción extensa de algo
+	//imagen varchar(50) => aqui puede ir una url de la imagen
 )
