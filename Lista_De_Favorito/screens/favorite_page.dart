@@ -5,9 +5,7 @@ import 'package:provider/provider.dart';
 class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // This gets the current state of FavoritePageModel and also tells Flutter
-    // to rebuild this widget when FavoritePageModel notifies listeners (in other words,
-    // when it changes).
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -33,14 +31,12 @@ class FavoritePage extends StatelessWidget {
   }
 }
 
-// UI of FavoritePageList //
+
 class _FavoritePageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var itemNameStyle = Theme.of(context).textTheme.headline6;
-    // This gets the current state of FavoritePageModel and also tells Flutter
-    // to rebuild this widget when FavoritePageModel notifies listeners (in other words,
-    // when it changes).
+   
     var favoritepage = context.watch<FavoritePageModel>();
 
     return ListView.builder(
@@ -49,7 +45,7 @@ class _FavoritePageList extends StatelessWidget {
         leading: Image.asset(favoritepage.items[index].image),
         trailing: IconButton(
           icon: const Icon(Icons.delete),
-          // code to remove the favorite list //
+          
           onPressed: () {
             favoritepage.remove(favoritepage.items[index]);
           },
