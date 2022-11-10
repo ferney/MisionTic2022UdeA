@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="js/geturl.js"></script>
+</head>
+<body>
+    <nav class="navbar  nabvar-dark bg-dark">
+        <a href="index.html" class="btn btn-primary btn-sm"><i class="fas fa-home"></i></a>
+        <a href="select.html" class="btn btn-primary btn-sm"><i class="fas fa-search"></i></a>
+    </nav>
+    <div class="container">
+        <h6 class="d-flex justify-content-center">
+            Administrar Libros
+        </h6>
+        <form>
+                        <input type="hidden" id="id" value="" />
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="form-group">
+                <label>Autor</label>
+                <input type="text" class="form-control" id="autor">
+            </div>
+            <div class="form-group">
+                <label>Precio</label>
+                <input type="number" class="form-control" id="precio">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="update">Actualizar</button>
+                <button type="button" class="btn btn-danger" id="delete">Eliminar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        var id = decodeURI(getUrlVal()["id"]);
+        var nombre = decodeURI(getUrlVal()["nombre"]);
+        var autor = decodeURI(getUrlVal()["autor"]);
+        var precio = decodeURI(getUrlVal()["precio"]);
+
+        $("#id").val(id);
+        $("#nombre").val(nombre);
+        $("#autor").val(autor);
+        $("#precio").val(precio);
+
+        $("#update").click(function(){
+            var id = $('#id').val();
+            var nombre = $('#nombre').val();
+            var autor = $("#autor").val();
+            var precio = $("#precio").val();
+            var datos = "id=" + id + "&nombre=" + nombre + "&autor=" + autor + "&precio=" + precio + "&update=";
+
+            console.log(datos);
+       
+                $.ajax({
+                    type: "POST",
+                    url: "https://phonegapudemy.000webhostapp.com/update.php",
+                    data: datos,
+
+                    success: function(data){
+                        if(data == "Correcto"){
+                            alert("Actualizado Correctamente");
+                            window.location.href = "select.html";
+                        }else{
+                            alert("Error");
+                        }
+                    }
+                });
+           
+        });
+            $("#delete").click(function() {
+            var id = $("#id").val();
+            var datos = "id=" + id + "&delete=";
+            $.ajax({
+                type: "GET",
+                url: "https://phonegapudemy.000webhostapp.com/delete.php",
+                data: datos,
+                success: function(data) {
+
+                    if (data == "Correcto") {
+                        alert("Eliminado correctamente");   
+                        window.location.href = "select.html";                     
+                    
+                    } else if (data == "Error") {
+                        alert("Error");
+                    }
+                }
+            });
+
+        });
+    });
+</script>
